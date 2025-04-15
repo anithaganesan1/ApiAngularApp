@@ -1,0 +1,6 @@
+services:
+  apiangularapp:
+    image: ${DOCKER_REGISTRY-}apiangularapp
+    build:
+      context: .
+      dockerfile: ApiAngularApp/Dockerfile
