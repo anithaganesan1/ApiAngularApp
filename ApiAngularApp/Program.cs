@@ -80,7 +80,9 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddDbContext<AppDBcontext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DBCON"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BlogDbConnection"));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("DBCON"));
+
 });
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.SignIn.RequireConfirmedAccount = true)
@@ -170,5 +172,6 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapPost("/authenticate", (Userjwt users, tokenServices tokService)=> tokService.GenerateToken(users));
 app.MapGet("/signin", () => "User Authenticated Successfully!").RequireAuthorization("Admin");
+app.UseDeveloperExceptionPage(); // TEMPORARILY only
 
 app.Run();

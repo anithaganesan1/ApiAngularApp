@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ApiAngularAppContextConnection"
+    },
+    "mssql2": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/apiangularappdatabase/databases/loginsampleDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:BlogDbConnection"
+    }
+  }
+}
